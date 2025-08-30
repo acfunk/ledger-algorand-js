@@ -1,4 +1,4 @@
-# ledger-algorand
+# ledger-algorand-js
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
@@ -29,7 +29,7 @@ To use this library, you need to create a transport instance that connects to yo
 The `getVersion` method retrieves the version information from the Algorand Ledger app.
 
 ```typescript
-import { AlgorandApp } from 'ledger-algorand'
+import { AlgorandApp } from 'ledger-algorand-js'
 
 // Select transport based on your needs
 const transport = getTransport()
@@ -52,7 +52,7 @@ try {
 The `getAddressAndPubKey` method retrieves the Algorand public key and address from the Ledger device.
 
 ```typescript
-import { AlgorandApp } from 'ledger-algorand'
+import { AlgorandApp } from 'ledger-algorand-js'
 
 // Select transport based on your needs
 const transport = getTransport()
@@ -77,7 +77,7 @@ try {
 The `sign` method allows you to sign a transaction with the Algorand Ledger app.
 
 ```typescript
-import { AlgorandApp } from 'ledger-algorand'
+import { AlgorandApp } from 'ledger-algorand-js'
 
 // Select transport based on your needs
 const transport = getTransport()
@@ -110,7 +110,7 @@ import {
   ResponseAddress,
   ScopeType,
   SignData,
-} from 'ledger-algorand'
+} from 'ledger-algorand-js'
 
 // Import or define your canonify function
 

@@ -1,5 +1,5 @@
 {
-  "name": "ledger-algorand",
+  "name": "ledger-algorand-js",
   "version": "0.0.1",
   "description": "Node API for the Algorand App (Ledger Nano S/X/S+)",
   "keywords": [
