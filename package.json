@@ -1,6 +1,6 @@
 {
-  "name": "@zondax/ledger-algorand",
-  "version": "0.0.2",
+  "name": "ledger-algorand",
+  "version": "0.0.1",
   "description": "Node API for the Algorand App (Ledger Nano S/X/S+)",
   "keywords": [
     "Zondax",
@@ -9,13 +9,13 @@
     "Javascript",
     "Algorand"
   ],
-  "homepage": "https://github.com/zondax/ledger-algorand",
+  "homepage": "https://github.com/acfunk/ledger-algorand-js",
   "bugs": {
-    "url": "https://github.com/zondax/ledger-algorand/issues"
+    "url": "https://github.com/acfunk/ledger-algorand-js/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zondax/ledger-algorand.git"
+    "url": "git+https://github.com/acfunk/ledger-algorand-js.git"
   },
   "license": "Apache-2.0",
   "author": "Zondax AG",
@@ -33,8 +33,8 @@
     "format:check": "FORCE_COLOR=1 prettier --check . && sort-package-json -c",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --fix --ext .ts",
-    "test": "bunx vitest",
-    "test:coverage": "bunx vitest run --coverage"
+    "test": "pnpx vitest",
+    "test:coverage": "pnpx vitest run --coverage"
   },
   "dependencies": {
     "@ledgerhq/hw-transport": "^6.31.4",

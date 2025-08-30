@@ -1,7 +1,6 @@
-# @zondax/ledger-algorand
+# ledger-algorand
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![npm version](https://badge.fury.io/js/%40zondax%2Fledger-algorand.svg)](https://badge.fury.io/js/%40zondax%2Fledger-algorand)
 
 This package provides a basic client library to communicate with the Algorand App running in a Ledger Nano S/X
 
@@ -30,7 +29,7 @@ To use this library, you need to create a transport instance that connects to yo
 The `getVersion` method retrieves the version information from the Algorand Ledger app.
 
 ```typescript
-import { AlgorandApp } from '@zondax/ledger-algorand'
+import { AlgorandApp } from 'ledger-algorand'
 
 // Select transport based on your needs
 const transport = getTransport()
@@ -53,7 +52,7 @@ try {
 The `getAddressAndPubKey` method retrieves the Algorand public key and address from the Ledger device.
 
 ```typescript
-import { AlgorandApp } from '@zondax/ledger-algorand'
+import { AlgorandApp } from 'ledger-algorand'
 
 // Select transport based on your needs
 const transport = getTransport()
@@ -78,7 +77,7 @@ try {
 The `sign` method allows you to sign a transaction with the Algorand Ledger app.
 
 ```typescript
-import { AlgorandApp } from '@zondax/ledger-algorand'
+import { AlgorandApp } from 'ledger-algorand'
 
 // Select transport based on your needs
 const transport = getTransport()
@@ -110,8 +109,8 @@ import {
   AlgorandApp,
   ResponseAddress,
   ScopeType,
-  StdSigData,
-} from '@zondax/ledger-algorand'
+  SignData,
+} from 'ledger-algorand'
 
 // Import or define your canonify function
 
@@ -168,4 +167,4 @@ The signData method may throw specific errors. These errors are available in the
 
 ## Notes
 
-Use `bun install` to avoid issues.
+Use `pnpm install` to avoid issues.
