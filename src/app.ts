@@ -159,7 +159,6 @@ export class AlgorandApp extends BaseApp {
   ) {
     const chunks = []
 
-    // First chunk prepend accountId if != 0
     let messageBuffer
 
     if (typeof message === 'string') {
@@ -168,15 +167,9 @@ export class AlgorandApp extends BaseApp {
       messageBuffer = message
     }
 
-    let buffer: Buffer
-
-    if (accountId !== 0) {
-      const accountIdBuffer = Buffer.alloc(4)
-      accountIdBuffer.writeUInt32BE(accountId)
-      buffer = Buffer.concat([accountIdBuffer, messageBuffer])
-    } else {
-      buffer = Buffer.concat([messageBuffer])
-    }
+    const accountIdBuffer = Buffer.alloc(4)
+    accountIdBuffer.writeUInt32BE(accountId)
+    const buffer = Buffer.concat([accountIdBuffer, messageBuffer])
 
     for (let i = 0; i < buffer.length; i += AlgorandApp._params.chunkSize) {
       let end = i + AlgorandApp._params.chunkSize
@@ -244,11 +237,6 @@ export class AlgorandApp extends BaseApp {
   async sign(accountId = 0, message: string | Buffer): Promise<ResponseSign> {
     const chunks = AlgorandApp.prepareChunksFromAccountId(accountId, message)
 
-    let p1 =
-      accountId !== 0
-        ? AlgorandApp._params.p1ValuesSignLegacy.P1_FIRST_ACCOUNT_ID
-        : AlgorandApp._params.p1ValuesSignLegacy.P1_FIRST
-
     let p2 =
       chunks.length > 1
         ? AlgorandApp._params.p2Values.P2_MORE_CHUNKS
@@ -260,8 +248,7 @@ export class AlgorandApp extends BaseApp {
         p2,
         0,
         chunks.length,
-        chunks[0],
-        p1
+        chunks[0]
       )
 
       for (let i = 1; i < chunks.length; i += 1) {
