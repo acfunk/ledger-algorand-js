@@ -128,14 +128,14 @@ const req = {
 
 const domain: string = 'dummyDomain'
 
-const signingData: StdSigData = {
+const signingData: SignData = {
   // Base64-encoded canonified JSON
   data: Buffer.from(canonify(req)).toString('base64'),
   signer: pubBuf,
   domain: domain,
   // Uppercase Hex String, Base64-encoded
   requestId: Buffer.from(Array(32).fill(0x41)).toString('base64'),
-  authenticationData: new Uint8Array(
+  authenticatorData: new Uint8Array(
     createHash('sha256').update(domain).digest()
   ),
   hdPath: "m/44'/283'/0'/0/0",

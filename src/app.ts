@@ -15,7 +15,6 @@
  ******************************************************************************* */
 import type Transport from '@ledgerhq/hw-transport'
 import BaseApp, {
-  BIP32Path,
   ERROR_DESCRIPTION_OVERRIDE,
   INSGeneric,
   processErrorResponse,
@@ -28,9 +27,9 @@ import {
   ResponseAddress,
   ResponseSign,
   ResponseVersion,
-  StdSigData,
-  StdSigDataResponse,
-  StdSignMetadata,
+  SignData,
+  SignDataResponse,
+  SignMetadata,
 } from './types'
 
 // Add this constant for the default signing path
@@ -336,9 +335,9 @@ export class AlgorandApp extends BaseApp {
   }
 
   async signData(
-    signingData: StdSigData,
-    metadata: StdSignMetadata
-  ): Promise<StdSigDataResponse> {
+    signingData: SignData,
+    metadata: SignMetadata
+  ): Promise<SignDataResponse> {
     let dataToEncode
     let decodedData
 
@@ -358,8 +357,8 @@ export class AlgorandApp extends BaseApp {
     const requestIdBuffer = signingData.requestId
       ? Buffer.from(signingData.requestId, 'base64')
       : Buffer.from([])
-    const authDataBuffer = signingData.authenticationData
-      ? Buffer.from(signingData.authenticationData)
+    const authDataBuffer = signingData.authenticatorData
+      ? Buffer.from(signingData.authenticatorData)
       : Buffer.from([])
     const pathBuffer = signingData.hdPath
       ? this.serializePath(signingData.hdPath)
@@ -439,7 +438,7 @@ export class AlgorandApp extends BaseApp {
       data: signingData.data,
       signer: signingData.signer,
       domain: signingData.domain,
-      authenticationData: signingData.authenticationData,
+      authenticatorData: signingData.authenticatorData,
       requestId: signingData.requestId,
       hdPath: signingData.hdPath,
       signature: signature,
