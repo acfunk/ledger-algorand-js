@@ -27,9 +27,9 @@ import {
   ResponseAddress,
   ResponseSign,
   ResponseVersion,
-  SignData,
-  SignDataResponse,
-  SignMetadata,
+  StdSignData,
+  StdSignDataResponse,
+  StdSignMetadata,
 } from './types'
 
 // Add this constant for the default signing path
@@ -322,9 +322,9 @@ export class AlgorandApp extends BaseApp {
   }
 
   async signData(
-    signingData: SignData,
-    metadata: SignMetadata
-  ): Promise<SignDataResponse> {
+    signingData: StdSignData,
+    metadata: StdSignMetadata
+  ): Promise<StdSignDataResponse> {
     let dataToEncode
     let decodedData
 

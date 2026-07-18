@@ -54,17 +54,16 @@ export interface ResponseSign extends ResponseBase {
   signature: Buffer
 }
 
-export interface SignData {
+export interface StdSignData {
   data: string
   signer: Uint8Array
   domain: string
   authenticatorData: Uint8Array
   requestId?: string
   hdPath?: string
-  signature?: Uint8Array
 }
 
-export interface SignDataResponse extends SignData {
+export interface StdSignDataResponse extends StdSignData {
   signature: Uint8Array
 }
 
@@ -73,7 +72,7 @@ export enum ScopeType {
   AUTH = 1,
 }
 
-export interface SignMetadata {
+export interface StdSignMetadata {
   scope: ScopeType
   encoding: string
 }

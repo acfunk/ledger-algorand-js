@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import Transport from '@ledgerhq/hw-transport'
 import { LedgerError } from '../common'
-import { AlgorandApp, SignData } from '../index'
+import { AlgorandApp, StdSignData } from '../index'
 
 // Mock the Transport class
 const mockSend = vi.fn()
@@ -135,7 +135,7 @@ describe('AlgorandApp', () => {
 
   describe('signData', () => {
     it('should sign an arbitrary message', async () => {
-      const message: SignData = {
+      const message: StdSignData = {
         data: Buffer.from('{"test": "test"}').toString('base64'),
         signer: Buffer.from('test signer'),
         domain: 'test domain',
